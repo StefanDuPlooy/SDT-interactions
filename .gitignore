@@ -82,6 +82,18 @@ out
 .nuxt
 dist
 
+# Project specific
+/backend/dist/
+/frontend/build/
+
+# Database files
+data/
+*.db
+
+# OS specific
+.DS_Store
+Thumbs.db
+
 # Gatsby files
 .cache/
 # Comment in the public line in if your project uses Gatsby and not Next.js
