@@ -1,5 +1,5 @@
 import mongoose, { Schema, Document } from 'mongoose';
-import { StudentEngagementMetrics as IStudentEngagementMetrics } from '../../shared/types';
+import { StudentEngagementMetrics as IStudentEngagementMetrics } from '@/shared/types';
 
 export interface EngagementMetricsDocument extends IStudentEngagementMetrics, Document {}
 

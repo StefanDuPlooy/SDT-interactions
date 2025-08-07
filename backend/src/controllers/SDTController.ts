@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { APIResponse, RiskAssessment } from '../../shared/types';
+import { APIResponse, RiskAssessment } from '@/shared/types';
 
 export class SDTController {
   // Get current risk assessment for a student

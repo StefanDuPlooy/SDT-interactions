@@ -7,7 +7,7 @@ import {
   SessionParams,
   SimulationConfig,
   StudentEngagementMetrics
-} from '../../shared/types';
+} from '@/shared/types';
 
 export class SimulationEngine {
   private config: SimulationConfig = {

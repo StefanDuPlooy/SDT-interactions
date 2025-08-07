@@ -1,5 +1,5 @@
 import mongoose, { Schema, Document } from 'mongoose';
-import { InteractionEvent as IInteractionEvent } from '../../shared/types';
+import { InteractionEvent as IInteractionEvent } from '@/shared/types';
 
 export interface InteractionDocument extends Omit<IInteractionEvent, 'id'>, Document {
   interactionId: string;

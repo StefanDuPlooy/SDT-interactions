@@ -2,7 +2,13 @@
   "permissions": {
     "allow": [
       "Bash(docker-compose up:*)",
-      "Bash(find:*)"
+      "Bash(find:*)",
+      "Bash(docker-compose exec backend:*)",
+      "Bash(docker-compose:*)",
+      "Bash(npm run build:*)",
+      "Bash(npm ci:*)",
+      "Bash(curl:*)",
+      "Bash(docker exec:*)"
     ]
   },
   "enableAllProjectMcpServers": false
