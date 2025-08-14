@@ -9,7 +9,7 @@ export class SimpleSDTController {
       // Mock student profile
       const student = {
         id: studentId,
-        name: this.getAnonymousName(studentId),
+        name: this.getActualName(studentId), // Show actual name for current student
         academicLevel: Math.random() > 0.5 ? 'undergraduate' : 'postgraduate',
         major: ['Computer Science', 'Mathematics', 'Physics', 'Engineering'][Math.floor(Math.random() * 4)],
         currentGPA: 2.0 + Math.random() * 2.0,
@@ -161,8 +161,39 @@ export class SimpleSDTController {
     }
   }
 
+  private getActualName(studentId: string): string {
+    // Generate actual student names for when students view their own dashboard
+    const actualStudentNames = {
+      'STU_001': 'Alex Johnson',
+      'STU_002': 'Morgan Smith',
+      'STU_003': 'Casey Davis',
+      'STU_004': 'Taylor Wilson',
+      'STU_005': 'Jordan Brown',
+      'STU_006': 'Riley Jones',
+      'STU_007': 'Avery Garcia',
+      'STU_008': 'Cameron Martinez'
+    };
+    
+    if (actualStudentNames[studentId as keyof typeof actualStudentNames]) {
+      return actualStudentNames[studentId as keyof typeof actualStudentNames];
+    }
+    
+    // For other student IDs, generate a name based on the number
+    const match = studentId.match(/STU_(\d+)/);
+    if (match) {
+      const num = parseInt(match[1]);
+      const names = [
+        'Alex Johnson', 'Morgan Smith', 'Casey Davis', 'Taylor Wilson', 'Jordan Brown',
+        'Riley Jones', 'Avery Garcia', 'Cameron Martinez', 'Quinn Rodriguez', 'Parker Lewis'
+      ];
+      return names[(num - 1) % names.length];
+    }
+    
+    return `Student ${studentId}`;
+  }
+
   private getAnonymousName(studentId: string): string {
-    // Generate consistent anonymous names based on student ID
+    // Generate consistent anonymous names based on student ID (for other students)
     const anonymousNames = {
       'STU_001': 'Student A',
       'STU_002': 'Student B', 

@@ -218,10 +218,18 @@ export class SDTController {
     try {
       const { studentId } = req.params;
       
+      // Generate actual student name for the current student (not anonymous)
+      const actualStudentNames = [
+        'Alex Johnson', 'Morgan Smith', 'Casey Davis', 'Taylor Wilson', 'Jordan Brown',
+        'Riley Jones', 'Avery Garcia', 'Cameron Martinez', 'Quinn Rodriguez', 'Parker Lewis'
+      ];
+      const studentIndex = parseInt(studentId.replace(/\D/g, '')) - 1;
+      const actualName = actualStudentNames[studentIndex % actualStudentNames.length] || `Student ${studentId}`;
+
       // Mock student profile
       const student: Student = {
         id: studentId,
-        name: `Student ${studentId}`,
+        name: actualName, // Show actual name for current student
         academicLevel: Math.random() > 0.5 ? 'undergraduate' : 'postgraduate',
         major: ['Computer Science', 'Mathematics', 'Physics', 'Engineering'][Math.floor(Math.random() * 4)],
         currentGPA: 2.0 + Math.random() * 2.0,
@@ -251,9 +259,9 @@ export class SDTController {
         totalInteractions: Math.floor(Math.random() * 50) + 20,
         averageDuration: Math.floor(Math.random() * 180) + 30, // seconds
         topInteractionPartners: [
-          { studentId: 'STU_001', name: 'Alice Johnson', count: Math.floor(Math.random() * 10) + 5 },
-          { studentId: 'STU_002', name: 'Bob Smith', count: Math.floor(Math.random() * 8) + 3 },
-          { studentId: 'STU_003', name: 'Carol Davis', count: Math.floor(Math.random() * 6) + 2 }
+          { studentId: 'STU_001', name: 'Student STU_001', count: Math.floor(Math.random() * 10) + 5 },
+          { studentId: 'STU_002', name: 'Student STU_002', count: Math.floor(Math.random() * 8) + 3 },
+          { studentId: 'STU_003', name: 'Student STU_003', count: Math.floor(Math.random() * 6) + 2 }
         ],
         interactionTypes: {
           discussion: Math.floor(Math.random() * 15) + 5,
@@ -310,11 +318,14 @@ export class SDTController {
         const duration = Math.floor(Math.random() * 300) + 30; // 30-330 seconds
         const endTime = new Date(startTime.getTime() + duration * 1000);
         
+        // Generate a random partner student ID (always anonymous)
+        const partnerId = `STU_${String(Math.floor(Math.random() * 100) + 1).padStart(3, '0')}`;
+        
         return {
           id: `INT_${studentId}_${i.toString().padStart(3, '0')}`,
           sessionId: `SES_${Math.floor(Date.now() / 1000000)}_${Math.floor(Math.random() * 1000)}`,
-          studentId1: studentId,
-          studentId2: `STU_${String(Math.floor(Math.random() * 100) + 1).padStart(3, '0')}`,
+          studentId1: studentId, // Current student (always in studentId1 for consistency)
+          studentId2: partnerId, // Partner student (always anonymous)
           startTime,
           endTime,
           duration,

@@ -18,16 +18,16 @@ import {
 } from '@mui/material';
 import { Person, Search, Dashboard, Timeline } from '@mui/icons-material';
 
-// Sample student data for demo - Anonymous names
+// Sample student data for demo - Real names for students accessing their own data
 const sampleStudents = [
-  { id: 'STU_001', name: 'Student A', riskLevel: 'low' as const },
-  { id: 'STU_002', name: 'Student B', riskLevel: 'high' as const },
-  { id: 'STU_003', name: 'Student C', riskLevel: 'medium' as const },
-  { id: 'STU_004', name: 'Student D', riskLevel: 'low' as const },
-  { id: 'STU_005', name: 'Student E', riskLevel: 'high' as const },
-  { id: 'STU_006', name: 'Student F', riskLevel: 'low' as const },
-  { id: 'STU_007', name: 'Student G', riskLevel: 'medium' as const },
-  { id: 'STU_008', name: 'Student H', riskLevel: 'low' as const },
+  { id: 'STU_001', name: 'Alex Johnson', riskLevel: 'low' as const },
+  { id: 'STU_002', name: 'Morgan Smith', riskLevel: 'high' as const },
+  { id: 'STU_003', name: 'Casey Davis', riskLevel: 'medium' as const },
+  { id: 'STU_004', name: 'Taylor Wilson', riskLevel: 'low' as const },
+  { id: 'STU_005', name: 'Jordan Brown', riskLevel: 'high' as const },
+  { id: 'STU_006', name: 'Riley Jones', riskLevel: 'low' as const },
+  { id: 'STU_007', name: 'Avery Garcia', riskLevel: 'medium' as const },
+  { id: 'STU_008', name: 'Cameron Martinez', riskLevel: 'low' as const },
 ];
 
 const StudentLookup: React.FC = () => {
@@ -118,7 +118,7 @@ const StudentLookup: React.FC = () => {
                 label="Search by name or ID"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                placeholder="Alice, STU_001, etc."
+                placeholder="Alex Johnson, STU_001, etc."
                 InputProps={{
                   startAdornment: <Search sx={{ mr: 1, color: 'text.secondary' }} />
                 }}
@@ -180,7 +180,7 @@ const StudentLookup: React.FC = () => {
             </li>
           </ul>
           <Typography variant="body2">
-            Try entering a student ID like <strong>STU_001</strong> or search for names like <strong>Student A</strong> to explore the features.
+            Try entering a student ID like <strong>STU_001</strong> or search for names like <strong>Alex Johnson</strong> to explore the features.
           </Typography>
         </CardContent>
       </Card>
