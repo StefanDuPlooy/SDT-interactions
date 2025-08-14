@@ -1,5 +1,5 @@
 import mongoose, { Schema, Document } from 'mongoose';
-import { Student as IStudent } from '@/shared/types';
+import { Student as IStudent } from '../types';
 
 export interface StudentDocument extends Omit<IStudent, 'id'>, Document {
   studentId: string;

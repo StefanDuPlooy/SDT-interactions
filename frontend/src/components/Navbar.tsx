@@ -11,7 +11,8 @@ import {
   Dashboard as DashboardIcon,
   PlayArrow as PlayIcon,
   People as PeopleIcon,
-  AccountTree as NetworkIcon
+  AccountTree as NetworkIcon,
+  PersonSearch
 } from '@mui/icons-material';
 
 const Navbar: React.FC = () => {
@@ -23,6 +24,7 @@ const Navbar: React.FC = () => {
     { path: '/simulation', label: 'Simulation', icon: <PlayIcon /> },
     { path: '/students', label: 'Students', icon: <PeopleIcon /> },
     { path: '/network', label: 'Network', icon: <NetworkIcon /> },
+    { path: '/student-lookup', label: 'Student Lookup', icon: <PersonSearch /> },
   ];
 
   return (

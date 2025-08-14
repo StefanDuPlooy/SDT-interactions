@@ -8,7 +8,7 @@ import { WebSocketServer } from 'ws';
 
 // Import routes
 import simulationRoutes from './routes/simulation';
-import sdtRoutes from './routes/sdt';
+import sdtRoutes from './routes/simpleSdt';
 import { DatabaseConnection } from './database/connection';
 
 // Load environment variables

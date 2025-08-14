@@ -10,6 +10,9 @@ import Dashboard from './components/Dashboard';
 import SimulationControl from './components/SimulationControl';
 import StudentMonitor from './components/StudentMonitor';
 import NetworkAnalysis from './components/NetworkAnalysis';
+import StudentDashboardWrapper from './components/StudentDashboardWrapper';
+import InteractionTimelineWrapper from './components/InteractionTimelineWrapper';
+import StudentLookup from './components/StudentLookup';
 
 const theme = createTheme({
   palette: {
@@ -42,6 +45,9 @@ function App() {
               <Route path="/simulation" element={<SimulationControl />} />
               <Route path="/students" element={<StudentMonitor />} />
               <Route path="/network" element={<NetworkAnalysis />} />
+              <Route path="/student-lookup" element={<StudentLookup />} />
+              <Route path="/student/:studentId" element={<StudentDashboardWrapper />} />
+              <Route path="/student/:studentId/interactions" element={<InteractionTimelineWrapper />} />
             </Routes>
           </Box>
         </Box>

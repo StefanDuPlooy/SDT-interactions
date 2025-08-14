@@ -1,5 +1,5 @@
 import mongoose, { Schema, Document } from 'mongoose';
-import { ClassSession as IClassSession, NetworkMetrics } from '@/shared/types';
+import { ClassSession as IClassSession, NetworkMetrics } from '../types';
 
 export interface SessionDocument extends Omit<IClassSession, 'students' | 'interactions' | 'id'>, Document {
   sessionId: string;

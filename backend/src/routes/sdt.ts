@@ -24,4 +24,14 @@ router.get('/engagement-batch', (req, res) =>
   sdtController.getEngagementBatch(req, res)
 );
 
+// Get individual student dashboard data
+router.get('/student/:studentId/dashboard', (req, res) => 
+  sdtController.getStudentDashboard(req, res)
+);
+
+// Get student interactions over time
+router.get('/student/:studentId/interactions', (req, res) => 
+  sdtController.getStudentInteractions(req, res)
+);
+
 export default router;

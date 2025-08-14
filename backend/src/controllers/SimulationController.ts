@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import { SimulationEngine } from '../services/SimulationEngine';
-import { SessionParams, APIResponse } from '@/shared/types';
+import { SessionParams, APIResponse } from '../types';
 import Joi from 'joi';
 
 export class SimulationController {

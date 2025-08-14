@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import {
   Box,
   Typography,
@@ -13,13 +14,18 @@ import {
   LinearProgress,
   Card,
   CardContent,
-  Grid
+  Grid,
+  IconButton,
+  Tooltip,
+  Button
 } from '@mui/material';
 import { 
   Warning,
   TrendingUp,
   TrendingDown,
-  Remove
+  Remove,
+  Visibility,
+  Timeline
 } from '@mui/icons-material';
 
 interface MockStudent {
@@ -130,6 +136,7 @@ const StudentMonitor: React.FC = () => {
                 <TableCell>Engagement Score</TableCell>
                 <TableCell>Interactions</TableCell>
                 <TableCell>Trend</TableCell>
+                <TableCell>Actions</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -163,6 +170,30 @@ const StudentMonitor: React.FC = () => {
                       <Typography variant="body2" sx={{ ml: 0.5, textTransform: 'capitalize' }}>
                         {student.trend}
                       </Typography>
+                    </Box>
+                  </TableCell>
+                  <TableCell>
+                    <Box display="flex" gap={1}>
+                      <Tooltip title="View Student Dashboard">
+                        <IconButton
+                          component={Link}
+                          to={`/student/${student.id}`}
+                          size="small"
+                          color="primary"
+                        >
+                          <Visibility />
+                        </IconButton>
+                      </Tooltip>
+                      <Tooltip title="View Interaction Timeline">
+                        <IconButton
+                          component={Link}
+                          to={`/student/${student.id}/interactions`}
+                          size="small"
+                          color="secondary"
+                        >
+                          <Timeline />
+                        </IconButton>
+                      </Tooltip>
                     </Box>
                   </TableCell>
                 </TableRow>
